@@ -2,98 +2,495 @@
     /*ATUR BREADCRUMB DARI BOOTSTRAP*/
     ol.breadcrumb li+li:before {
         padding: 8px;
-        color: grey;
-        content: ">";
+        color: #555;
+        font-family: FontAwesome;
+        content: "\f054";
+        font-size: 12px;
     }
+
+    /*CSS UNTUK ATUR BACKGROUND COLOR UNITEGALLERY*/
+    .ug-gallery-wrapper .ug-slider-wrapper 
+    {   
+        background-color: #fff!important;
+    }
+
+    /*.ug-gallery-wrapper .ug-strip-panel 
+    {
+        background-color: #fff!important;
+    }*/
+    /*CSS UNTUK ATUR BACKGROUND COLOR UNITEGALLERY*/
+
+    /*CSS UNTUK NAV TABS*/
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus
+    {
+        color: #4854fb;
+    }
+
+    a
+    {
+        color: #555;
+    }
+    /*END CSS UNTUK NAV TABS*/
+
+    /*REMOVE SPINNER FROM INPUT NUMBER*/
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; /* for chrome */
+        -moz-appearance: none; /* for firefox*/
+        appearance: none;
+        margin: 0; 
+    }
+    input[type=number] {
+        -moz-appearance: textfield; /* for firefox*/
+    }
+
+    /*EFEK WARNA GRADASI UNTUK ICON STAR FONT AWESOME*/
+    .gradient-icon-actived 
+    {
+        background: -webkit-gradient(linear, left top, left bottom, from(yellow), to(gold));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: initial;
+    }
+
+    .gradient-icon 
+    {
+        background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ccc));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: initial;
+    }
+    /*END EFEK WARNA GRADASI UNTUK ICON STAR FONT AWESOME*/
+
 </style>
-    
+
+    <section style="background-color: #F9F9F9;padding-bottom:5px;">
     <?php if(!isset($_SESSION['tc_id_user'])):?>
     <div class="container" style="margin-top: 90px;padding-top: 70px;margin-bottom: 40px;">
     <?php else:?>
     <div class="container" style="margin-top: 50px;padding-top: 70px;margin-bottom: 40px;">
     <?php endif;?>
-    <!-- <div class="container"> -->
+
         <div class="row">
             <div class="col-md-12">
 
-                <!-- <ol class="breadcrumb" style="background-color: rgb(248, 248, 248);border: 0;"> -->
                 <ol class="breadcrumb" style="background-color: transparent;border: 0;padding: 0;">
-                    <li><span style="color: #db4a39;font-family:latoregular;">FarmerGamer</span></li>
-                    <li><?php echo anchor($this->uri->segment(1).'/produk','Jual Produk','style="color:#db4a39;font-weight:bold;"');?></li>
-                    <li class="active"><span style="color: #db4a39;font-family:latoregular;">Detail</span></li>
-                    <li><span style="color: #db4a39;font-family:latoregular;"><?php echo $detail_item['judul'];?></span></li>
+                    <li><span style="color: #555;font-size:15px;font-family:latoregular;">FarmerGamer</span></li>
+                    <li><span style="color: #555;font-size:15px;font-family:latoregular;">Dijual</span></li>
+                    <li><?php echo anchor($this->uri->segment(1).'/produk','Produk','style="color:#555;font-size:15px;"');?></li>
+                    <li><span style="color: #555;font-size:15px;font-family:latoregular;"><?php echo $nm_game['nama_game'];?></span></li>
+                    <li><span style="color: #555;font-size:15px;font-family:latoregular;"><?php echo $detail_item['judul'];?></span></li>
                 </ol>
 
-                <!-- <div class="text-center" style="color: #565656;font-size: 25px;transform: scale(.9,1);font-family: sans-serif;"><?php //echo $title;?> - <?php //echo $detail_item['kd_dijual'];?></div>
-                <div class="separator"></div> -->
-
-                <h4 class="text-center" style="color: #565656;font-size: 25px;transform: scale(.9,1);font-family: sans-serif;text-transform: uppercase;"><?php echo $detail_item['judul'];?></h4>
-                <div class="separator"></div>
             </div>
 
-            <div class="col-md-5">
-                <div id="gallery" style="display:none;">
+            <div class="col-md-4">
 
-                    <?php foreach($gmbr AS $val_gmbr):?>
-                        <!-- <?php //if($val_gmbr != "no_image.jpg"):?> -->
-                        <img alt="<?php echo $val_gmbr;?>"
-                         src="<?php echo base_url();?>assets/custom/images/image_dijual/<?php echo $val_gmbr;?>"
-                         data-image="<?php echo base_url();?>assets/custom/images/image_dijual/<?php echo $val_gmbr;?>"
-                         data-description="<?php echo $val_gmbr;?>">
+                <div class="panel panel-default" style="border: 1px solid #F9F9F9;box-shadow: 1px 1px 0px 0px #e9e9e9;">
+                    <div class="panel-body">
+                        <div class="row" style="margin-top: -15px;margin-bottom: -15px;">
+                        <div id="gallery" style="display:none;">
 
-                        <!-- <?php //else:?>
-                        <img alt="<?php //echo $val_gmbr;?>"
-                         data-image="<?php //echo base_url();?>assets/custom/images/image_dijual/<?php //echo $val_gmbr;?>"
-                         >
+                            <?php foreach($gmbr AS $val_gmbr):?>
+                                <!-- <?php //if($val_gmbr != "no_image.jpg"):?> -->
+                                <img alt="<?php echo $val_gmbr;?>"
+                                 src="<?php echo base_url();?>assets/custom/images/image_dijual/<?php echo $val_gmbr;?>"
+                                 data-image="<?php echo base_url();?>assets/custom/images/image_dijual/<?php echo $val_gmbr;?>"
+                                 data-description="<?php echo $val_gmbr;?>">
 
-                        <?php //endif;?> -->
-                    <?php endforeach;?>
+                                <!-- <?php //else:?>
+                                <img alt="<?php //echo $val_gmbr;?>"
+                                 data-image="<?php //echo base_url();?>assets/custom/images/image_dijual/<?php //echo $val_gmbr;?>"
+                                 >
 
-                    <!-- <img alt="Preview Image 1"
-                         src="<?php //echo base_url();?>assets/custom/images/properti/1.jpg"
-                         data-image="<?php //echo base_url();?>assets/custom/images/properti/1.jpg"
-                         data-description="Preview Image 1 Description">
-                
-                    <img alt="Preview Image 2"
-                         src="<?php //echo base_url();?>assets/custom/images/properti/2.jpg"
-                         data-image="<?php //echo base_url();?>assets/custom/images/properti/2.jpg"
-                         data-description="Preview Image 2 Description">
-                    
-                    <img alt="Preview Image 3"
-                         src="<?php //echo base_url();?>assets/custom/images/properti/3.jpg"
-                         data-image="<?php //echo base_url();?>assets/custom/images/properti/3.jpg"
-                         data-description="Preview Image 3 Description"> -->
-                                     
+                                <?php //endif;?> -->
+                            <?php endforeach;?>
+
+                            <!-- <img alt="Preview Image 1"
+                                 src="<?php //echo base_url();?>assets/custom/images/properti/1.jpg"
+                                 data-image="<?php //echo base_url();?>assets/custom/images/properti/1.jpg"
+                                 data-description="Preview Image 1 Description">
+                        
+                            <img alt="Preview Image 2"
+                                 src="<?php //echo base_url();?>assets/custom/images/properti/2.jpg"
+                                 data-image="<?php //echo base_url();?>assets/custom/images/properti/2.jpg"
+                                 data-description="Preview Image 2 Description">
+                            
+                            <img alt="Preview Image 3"
+                                 src="<?php //echo base_url();?>assets/custom/images/properti/3.jpg"
+                                 data-image="<?php //echo base_url();?>assets/custom/images/properti/3.jpg"
+                                 data-description="Preview Image 3 Description"> -->
+                                             
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div id="love" class="pull-left">
+                            <div class="btn btn-default" onclick="addLikes();" id="lg-suka"><i class="fa fa-heart" style="font-size: 13px;cursor:pointer;" title=""></i> Suka (0)
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 5px;margin-left: 7px;" class="pull-right">
+                            <a href="#" title="Facebook"><span class="dot-fb"><i class="fa fa-facebook" style="color: #fff;font-size: 20px;"></i></span></a>
+                            <a href="#" title="Twitter"><span class="dot-twitter"><i class="fa fa-twitter" style="color: #fff;font-size: 20px;"></i></span></a>
+                            <a href="#" title="Google Plus"><span class="dot-google"><i class="fab fa-google-plus" style="color: #fff;font-size: 20px;"></i></span></a>
+                            <a href="#" title="LinkedIn"><span class="dot-linked-in"><i class="fa fa-linkedin" style="color: #fff;font-size: 20px;"></i></span></a>
+                        </div>
+                    </div>
+
+                </div> 
+
+                <!-- <div class="panel panel-default" style="margin-top: -15px;border: 1px solid #F9F9F9;box-shadow: 1px 1px 0px 0px #e9e9e9;">
+                    <div class="panel-body">
+                        <div style="margin-top: 5px;margin-left: 7px;letter-spacing: 1em;" class="text-center"> -->
+                            <!-- <span style="letter-spacing: 0em!important;">Share</span> -->
+                            <!-- <a href="#" title="Facebook"><span class="dot-fb"><i class="fa fa-facebook" style="color: #fff;font-size: 20px;"></i></span></a>
+                            <a href="#" title="Twitter"><span class="dot-twitter"><i class="fa fa-twitter" style="color: #fff;font-size: 20px;"></i></span></a>
+                            <a href="#" title="Google Plus"><span class="dot-google"><i class="fab fa-google-plus" style="color: #fff;font-size: 20px;"></i></span></a>
+                            <a href="#" title="LinkedIn"><span class="dot-linked-in"><i class="fa fa-linkedin" style="color: #fff;font-size: 20px;"></i></span></a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="panel panel-default" style="margin-top: -15px;border: 1px solid #F9F9F9;box-shadow: 1px 1px 0px 0px #e9e9e9;">
+                    <div class="panel-body">
+                        <div class="text-center">
+
+                            <div id="love">
+                                <div class="btn btn-default pull-left col-lg-6 col-md-6 col-sm-12 col-xs-12" onclick="addLikes();" id="lg-suka"><i class="fa fa-heart" style="font-size: 13px;cursor:pointer;" title=""></i> Suka (0)
+                                </div>
+                            </div>
+                            <button class="btn btn-default pull-right col-lg-6 col-md-6 col-sm-12 col-xs-12" class="btn btn-default" title="Lihat Penilaian" style="cursor:pointer;">
+                                <i class="fas fa-star gradient-icon" style="font-size: 13px;"></i>
+                                Penilaian (0)
+                            </button>   
+                            
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="panel panel-default" style="margin-top: -15px;border: 1px solid #F9F9F9;box-shadow: 1px 1px 0px 0px #e9e9e9;">
+                    <div class="panel-body">
+
+                        <div id="love" class="pull-left">
+                            <div class="btn btn-default" onclick="addLikes();" id="lg-suka"><i class="fa fa-heart" style="font-size: 13px;cursor:pointer;" title=""></i> Suka (0)
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 5px;margin-left: 7px;" class="pull-right">
+                            <a href="#" title="Facebook"><span class="dot-fb"><i class="fa fa-facebook" style="color: #fff;font-size: 20px;"></i></span></a>
+                            <a href="#" title="Twitter"><span class="dot-twitter"><i class="fa fa-twitter" style="color: #fff;font-size: 20px;"></i></span></a>
+                            <a href="#" title="Google Plus"><span class="dot-google"><i class="fab fa-google-plus" style="color: #fff;font-size: 20px;"></i></span></a>
+                            <a href="#" title="LinkedIn"><span class="dot-linked-in"><i class="fa fa-linkedin" style="color: #fff;font-size: 20px;"></i></span></a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="panel panel-default" style="margin-top: -15px;border: 1px solid #F9F9F9;box-shadow: 1px 1px 0px 0px #e9e9e9;">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <div class="btn-group" id="love">
+                                <button class="btn btn-default" onclick="addLikes();" id="lg-suka"><i class="fa fa-heart" style="font-size: 13px;" title=""></i> Suka (0)
+                                    </button>
+                                <button class="btn btn-default" class="btn btn-default" title="Lihat Penilaian" style="cursor:pointer;">
+                                    <i class="fas fa-star gradient-icon" style="font-size: 13px;"></i>
+                                    Penilaian (0)
+                                </button>   
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="panel panel-default" style="border: 1px solid #F9F9F9;box-shadow: 1px 1px 0px 0px #e9e9e9;">
+                    <div class="panel-body">
+                        <ul>
+                            <li><div style="overflow: hidden;text-overflow: ellipsis;display: block;"><h1 style="font-size: 1.5rem;font-weight: 500!important;margin: 0;display: inline-block;color:rgba(0,0,0,.8);"><?php echo $detail_item['judul'];?></h1></div></li>
+                            <li>
+                                <?php if($detail_item['harga'] == $detail_item['harga_diskon']):?>
+                                <h5 style="font-size: 20px;color: green;margin-bottom: 5px;">Rp<?php echo number_format($detail_item['harga'],0,',','.');?></h5>
+                                <?php else:?>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 style="text-decoration:line-through;color:#aaa;padding-right: 10px;font-size: 15px;margin-bottom: 5px;" class="pull-left">Rp<?php echo number_format($detail_item['harga'],0,',','.');?></h5>
+                                        <h5 style="color: green;font-size: 20px;margin-bottom: 5px;" class="pull-left">Rp<?php echo number_format($detail_item['harga_diskon'],0,',','.');?></h5>
+                                    </div>
+                                </div>
+                                <?php endif;?>      
+                            </li>
+
+                            <li><div style="color: #ababab;">Belum Ada Penilaian | 0 Terjual Setiap Bulan</div></li>
+
+                            <!-- <li>KD. Dijual : <?php //echo $detail_item['kd_dijual'];?></li>
+                            <li>Jenis Dijual : <?php //echo ucwords($detail_item['jenis_dijual']);?></li>
+                            <li>Username : <?php //echo ucwords($detail_item['username']);?></li>
+                            <li>Nama Produk / Jasa : <?php //echo ucwords($detail_item['nama_dijual']);?></li>
+                            <li>Nama Game : <?php //echo $detail_item['nama_game'];?></li>
+                            <li>Kategori Produk / Jasa : 
+                                <?php 
+                                //foreach($ktgr AS $val_ktgr)
+                                {
+                                    //echo ucwords($val_ktgr).', ';
+                                }
+                                ;?>
+                            </li>
+                            <li>Keterangan : <?php //echo ucwords($detail_item['keterangan']);?></li> -->
+
+                        </ul>
+
+                        <!-- <div class="row"><div style="color: #ababab;" class="col-md-12">Belum Ada Penilaian | 0 Terjual Setiap Bulan</div></div> -->
+
+                        <div class="row" style="margin-top: 15px;padding-top: 15px;border-top: 1px solid #e9e9e9;">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <div style="margin-top: 10px;">Jumlah</div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-sm-12">
+                                <div class="input-group">
+                                    <span class="btn btn-success input-group-addon" style="font-weight:bold;" onclick="spinner_kurang(<?php echo $detail_item['id_dijual'];?>);">-</span>
+                                    <input type="number" value="1" min="1" max="<?php echo $detail_item['jumlah'];?>" placeholder="Jumlah" class="form-control text-center" required autofocus id="qty_<?php echo $detail_item['id_dijual'];?>" onkeypress="validasi_spinner_number(<?php echo $detail_item['id_dijual'];?>,<?php echo $detail_item['jumlah'];?>);"/>
+                                    <span class="btn btn-success input-group-addon" style="font-weight:bold;" onclick="spinner_tambah(<?php echo $detail_item['id_dijual'];?>,<?php echo $detail_item['jumlah'];?>);">+</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div style="margin-top: 10px;color: #ababab;">Tersisa <?php echo $detail_item['jumlah'];?> buah</div>
+                            </div>
+                         </div>
+
+                        <div style="margin-top: 15px;border-top: 1px solid #e9e9e9;padding-top: 15px;">
+                            <button class="btn btn-primary"><i class="fas fa-comments" style="color: #fff;font-size: 17px;"></i> Chat Penjual</button>
+                            <button class="btn btn-danger" onclick="prosesCart('add',<?php echo $detail_item['id_dijual'];?>)"><i class="fa fa-cart-plus" style="color: #fff;font-size: 17px;"></i> Masukkan Keranjang</button>
+                            <button class="btn btn-success">Beli Sekarang</button>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="panel panel-default" style="border: 1px solid #F9F9F9;box-shadow: 1px 1px 0px 0px #e9e9e9;">
+                    <div class="panel-body" style="border-bottom: 2px solid #F9F9F9;cursor: pointer;">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="padding-right: 25px;margin-bottom: 5px;">
+                                    <img src="<?php echo base_url();?>assets/custom/images/image_user/<?php echo $info_usr['image'];?>" style="height:35px;width:35px;min-width: 35px;" class="img-circle">
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-10" style="margin-top: -5px;">
+                                    <ul>
+                                        <li><div><?php echo ucwords($info_usr['username']);?></div></li>
+                                        <li><div style="font-size: 12px;color: #ababab;">Aktif 10 Menit Lalu</div></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="pull-right"><button class="btn btn-default">Kunjungi Toko</button></div>
+                                    <div class="pull-right" style="margin-right: 5px;"><button class="btn btn-default">Ikuti</button></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-12 text-center">
+                            
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="border: 1px solid #E9E9E9;padding: 5px;">
+                                <i class="fa fa-briefcase"></i> <span style="color: green;">5</span>
+                                <div class="col-md-12" style="font-size: 13px;color: #ababab">Produk</div>
+                                <!-- <div class="col-md-12" style="font-size: 13px;color: #ababab">Produk / Jasa</div> -->
+                                <!-- <div class="col-md-12" style="font-size: 13px;color: #ababab">Jual Produk / Jasa</div> -->
+                                <!-- <div class="col-md-12" style="font-size: 13px;color: #ababab">Item</div> -->
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="border: 1px solid #E9E9E9;padding: 5px;">
+                                <i class="fa fa-suitcase"></i> <span style="color: green">5</span>
+                                <div class="col-md-12" style="font-size: 13px;color: #ababab">Jasa</div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="border: 1px solid #E9E9E9;padding: 5px;">
+                                <i class="fa fa-star"></i> <span style="color: green">3.5</span>
+                                <div class="col-md-12" style="font-size: 13px;color: #ababab">Rating Penjual</div>
+                            </div>
+                            <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="border: 1px solid #E9E9E9;padding: 5px;">
+                                <i class="fa fa-star"></i> <span style="color: green">0</span>
+                                <div class="col-md-12" style="font-size: 13px;color: #ababab">Rating Promotor</div>
+                            </div> -->
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="border: 1px solid #E9E9E9;padding: 5px;">
+                                <i class="fas fa-user-circle"></i> <span style="color: green">8 Bulan Lalu</span>
+                                <div class="col-md-12" style="font-size: 13px;color: #ababab">Bergabung</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default" style="border: 1px solid #F9F9F9;box-shadow: 1px 1px 0px 0px #e9e9e9;">
+                    <div class="panel-body">
+
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a data-toggle="tab" href="#rincian_produk">RINCIAN PRODUK</a></li>
+                          <li><a data-toggle="tab" href="#penilaian">PENILAIAN (<?php echo count($hsl);?>)</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div id="rincian_produk" class="tab-pane fade in active">
+                            
+                            <div class="col-md-12" style="padding-top: 10px;">
+                                <div style="padding-bottom: 10px;"><?php echo $detail_item['keterangan'];?></div>
+
+                                <div class="tabel-responsive">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td width="20%" style="background: #e9e9e9b8;">Jenis Dijual</td>
+                                            <td><?php echo ucwords($detail_item['jenis_dijual']);?></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20%" style="background: #e9e9e9b8;">Nama Produk / Jasa</td>
+                                            <td><?php echo ucwords($detail_item['nama_dijual']);?></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20%" style="background: #e9e9e9b8;">Nama Game</td>
+                                            <td><?php echo $nm_game['nama_game'];?></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20%" style="background: #e9e9e9b8;">Kategori</td>
+                                            <td>
+                                                <?php 
+                                                foreach($ktgr AS $val_ktgr)
+                                                {
+                                                    echo ucwords($val_ktgr).', ';
+                                                }
+                                                ;?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20%" style="background: #e9e9e9b8;">Stok</td>
+                                            <td><?php echo $detail_item['jumlah'];?></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                          </div>
+                          <div id="penilaian" class="tab-pane fade">
+
+                            <div class="col-md-12" style="padding-top: 10px;">
+
+
+                                <?php foreach($hsl as $value):?>                    
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading col-md-12" style="margin-bottom: 10px;color: #777;">
+                                        <?php $cari_user = $this->db->select("*")->from("users")->where("id_user", $value->id_pembeli)->get()->row_array();?>
+                                        <img class="img-circle" src="<?php echo base_url();?>assets/custom/images/image_user/<?php echo $cari_user['image'];?>" style="height:35px;width:35px;">
+                                        <?php echo ucwords($cari_user['username']);?>
+                                    </div>
+                                        
+                                    <div class="panel-body">
+                                        
+                                        <div>
+                                            <?php if($value->nilai_rating == "1"):?>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                            <?php elseif($value->nilai_rating == "2"):?>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                            <?php elseif($value->nilai_rating == "3"):?>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                            <?php elseif($value->nilai_rating == "4"):?>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon"></i>
+                                            <?php else:?>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                                <i class="fa fa-star gradient-icon-actived"></i>
+                                            <?php endif;?>
+                                        </div>
+
+                                        <div><?php echo $value->testimoni;?></div>
+                                        <div style="color: #c0c0c0;font-size: 12px;">25-05-2018 05.30</div>
+                                       
+                                    </div>               
+
+                                </div>
+                                <?php endforeach;?>
+
+                                <?php echo $kosong;?>
+                            </div>
+
+                          </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
             </div>
 
-            <div class="col-md-7">
-                <ul>
-                    <li>KD. Dijual : <?php echo $detail_item['kd_dijual'];?></li>
-                    <!-- <li>Judul : <?php //echo $detail_item['judul'];?></li> -->
-                    <li>Jenis Dijual : <?php echo ucwords($detail_item['jenis_dijual']);?></li>
-                    <li>Username : <?php echo ucwords($detail_item['username']);?></li>
-                    <li>Nama Produk / Jasa : <?php echo ucwords($detail_item['nama_dijual']);?></li>
-                    <li>Nama Game : <?php echo $detail_item['nama_game'];?></li>
-                    <li>Kategori Produk / Jasa : 
-                        <?php 
-                        foreach($ktgr AS $val_ktgr)
-                        {
-                            echo ucwords($val_ktgr).', ';
-                        }
-                        ;?>
-                    </li>
-                    <li>Harga Satuan : <?php echo $detail_item['harga'];?></li>
-                    <!-- <li>Diskon :  <?php //echo $detail_item['diskon'];?></li>
-                    <li>Harga Diskon :  <?php //echo $detail_item['harga_diskon'];?></li> -->
-                    <li>Keterangan : <?php echo ucwords($detail_item['keterangan']);?></li>
-                </ul>
-            </div>
+
 
         </div>
     </div>
+    </section>
 
 <script type="text/javascript">
+
+    function spinner_tambah(id_dijual,stk)
+    {   
+        var jt = $("#qty_"+id_dijual).val();
+        if(jt < stk)
+        {
+            var tambah_jt = (jt*1)+1;
+            $("#qty_"+id_dijual).val(tambah_jt);
+        }
+                
+    }
+
+    function spinner_kurang(id_dijual)
+    {
+        var jtransaksi = $("#qty_"+id_dijual).val();
+            if(jtransaksi > 1)
+            {
+                var kurang_jt = (jtransaksi*1)-1;
+                $("#qty_"+id_dijual).val(kurang_jt);
+            }
+            else
+            {
+                $("#qty_"+id_dijual).val(jtransaksi);
+            }
+                
+    }
+            
+    // // form validasi client side untuk insert
+    function validasi_spinner_number(id_dijual,stk){
+
+        $("#qty_"+id_dijual).keyup(function(e){
+            var key = (e.which) ? e.which : e.keyCode;
+            if( key == 13 ){ filterLeads(e) }
+
+            var jml_t = $("#qty_"+id_dijual).val();
+            if(jml_t < 1 || jml_t > stk)
+            {
+                $("#qty_"+id_dijual).val("");
+                // return false;
+            }
+            // console.log(jml_t)
+
+        });
+
+    }
 
     jQuery(document).ready(function(){
 
@@ -121,21 +518,54 @@
             // theme_enable_hidepanel_button:false
 
             gallery_theme:"compact",     //example how to change skin to "compact"
+            gallery_images_preload_type:"minimal",      //all , minimal , visible - preload type of the images.
+                                                        //minimal - only image nabours will be loaded each time.
+                                                        //visible - visible thumbs images will be loaded each time.
+                                                        //all - load all the images first time.
+            gallery_preserve_ratio: true,               //true, false - preserver ratio when on window resize
+            //gallery_background_color: "white",               //set custom background color. If not set it will be taken from css.
 
-            gallery_width:900,                          //gallery width     
-            gallery_height:500,                         //gallery height    
-            gallery_min_width: 400,                     //gallery minimal width when resizing
-            gallery_min_height: 300,                    //gallery minimal height when resizing
+            //gallery_width:900,                          //gallery width     
+            //gallery_height:500,                         //gallery height    
+            //gallery_min_width: 400,                     //gallery minimal width when resizing
+            //gallery_min_height: 300,                    //gallery minimal height when resizing
+            gallery_width:700,             //900                  
+            gallery_height:400,          //500                
+            gallery_min_width: 150,         // 150            
+            gallery_min_height: 300,       //400 
+            gallery_debug_errors:true,     //show error message when there is some error on the gallery area.            
 
+            slider_control_swipe:false,   //true,false - enable swiping control
+            slider_control_zoom:true,     //true, false - enable zooming control
+            slider_zoom_max_ratio: 3,     //max zoom ratio
+            slider_loader_type: 3,        //shape of the loader (1-7) / gambar loadingnya
+            slider_scale_mode: "fill",    //fit: scale down and up the image to always fit the slider
+                                         //down: scale down only, smaller images will be shown, don't enlarge images (scale up)
+                                         //fill: fill the entire slider space by scaling, cropping and centering the image
+            // slider_scale_mode: "fit", // masih bingung mau pake fit atau fill
             slider_enable_arrows:false,
-            slider_enable_zoom_panel:true,
-            // thumb_image_overlay_effect:true,
-            // thumb_image_overlay_type: "blur",
+            slider_enable_zoom_panel:false,
+            slider_transition: "fade", //fade, slide - the transition of the slide change
             slider_enable_progress_indicator:false,
             slider_enable_play_button:false,
             slider_enable_fullscreen_button:false,
             slider_enable_text_panel:false,
             slider_textpanel_enable_title:false,
+
+            slider_enable_bullets: true,     //enable the bullets onslider element
+            slider_bullets_skin: "",          //skin of the bullets, if empty inherit from gallery skin
+            slider_bullets_space_between: -1, //set the space between bullets. If -1 then will be set default space from the skins
+            slider_bullets_align_hor:"center",   //left, center, right - bullets horizontal align
+            slider_bullets_align_vert:"bottom",  //top, middle, bottom - bullets vertical algin
+            slider_bullets_offset_hor:0,         //bullets horizontal offset 
+            slider_bullets_offset_vert:10,       //bullets vertical offset
+
+            // thumb_image_overlay_effect:true,
+            // thumb_image_overlay_type: "blur",
+            // thumb_width:88,          //thumb width 88
+            // thumb_height:50,         //thumb height 50
+            // thumb_fixed_size:false,   //true,false - fixed/dynamic thumbnail width
+
             strippanel_enable_handle:false,
             gridpanel_enable_handle:false
 
@@ -155,11 +585,11 @@
 
                     // // gallery options
                 
-                    // gallery_width:900,                          //gallery width     
-                    // gallery_height:500,                         //gallery height
+                     //gallery_width:900,                          //gallery width     
+                     //gallery_height:500,                         //gallery height
     
-                    // gallery_min_width: 400,                     //gallery minimal width when resizing
-                    // gallery_min_height: 300,                    //gallery minimal height when resizing
+                     //gallery_min_width: 200,                     //gallery minimal width when resizing
+                     //gallery_min_height: 300,                    //gallery minimal height when resizing
     
                     // gallery_skin:"default",                     //default, alexis etc... - the global skin of the gallery. Will change all gallery items by default.
     
@@ -178,7 +608,7 @@
     
                     // gallery_preserve_ratio: true,               //true, false - preserver ratio when on window resize
                     // gallery_debug_errors:true,                  //show error message when there is some error on the gallery area.
-                    // gallery_background_color: "",               //set custom background color. If not set it will be taken from css.
+                    //gallery_background_color: "white",               //set custom background color. If not set it will be taken from css.
                         
                     // //slider options: 
     
@@ -197,8 +627,8 @@
                     // slider_transition_easing: "easeInOutQuad",  //transition easing function of slide change
     
                     // slider_control_swipe:true,                  //true,false - enable swiping control
-                    // slider_control_zoom:true,                   //true, false - enable zooming control
-                    // slider_zoom_max_ratio: 6,                   //max zoom ratio
+                    //slider_control_zoom:true,                   //true, false - enable zooming control
+                    //slider_zoom_max_ratio: 6,                   //max zoom ratio
                     // slider_loader_type: 1,                      //shape of the loader (1-7)
                     // slider_loader_color:"white",                //color of the loader: (black , white)
     

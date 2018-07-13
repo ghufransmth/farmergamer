@@ -58,8 +58,11 @@
     /*ATUR BREADCRUMB DARI BOOTSTRAP*/
     ol.breadcrumb li+li:before {
         padding: 8px;
-        color: grey;
-        content: ">";
+        color: #555;
+        /*content: ">";*/
+        font-family: FontAwesome;
+        content: "\f054";
+        font-size: 12px;
     }
     
 </style>
@@ -71,9 +74,9 @@
 
                 <!-- <ol class="breadcrumb" style="background-color: rgb(248, 248, 248);border: 0;"> -->
                 <ol class="breadcrumb" style="background-color: transparent;border: 0;padding: 0;">
-                    <li><i class="far fa-building" style="color: #ff0000bf;"></i><span style="color: #db4a39;font-family:latoregular;"> Toko Saya</span></li>
-                    <li><?php echo anchor('toko_saya/'.$this->uri->segment(2),'Katalog Saya','style="color:#db4a39;font-weight:bold;"');?></li>
-                    <li class="active"><a href="javascript:void(0)" onclick="halaman_ini();" style="color: #db4a39;font-weight: bold;">Edit Dicari</a></li>
+                    <li><i class="far fa-building" style="color: #555;"></i><span style="color: #555;font-size:15px;font-family:latoregular;"> Toko Saya</span></li>
+                    <li><?php echo anchor('toko_saya/'.$this->uri->segment(2),'Katalog Saya','style="color: #555;font-size:15px;"');?></li>
+                    <li class="active"><a href="javascript:void(0)" onclick="halaman_ini();" style="color: #555;font-size:15px;">Edit Dicari</a></li>
                 </ol>
 
                 <div class="text-center" style="color: #565656;font-size: 25px;transform: scale(.9,1);font-family: sans-serif;text-transform: uppercase;"><?php echo $title;?> - <?php echo $dicari['kd_dicari'];?></div>
@@ -193,7 +196,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">Kategori Produk / Jasa <span class="text-danger" style="font-size: 12px;font-style: italic;">*Dapat Memilih Lebih Dari 1 (satu)</span></label>
-                                            <select class="form-control select2" multiple name="kategori" id="kategori" style="background: #fff;">
+                                            <select class="form-control select2" multiple name="kategori" id="kategori" style="background: #fff;width: 100%;">
                                                 <?php
                                                     $kat=json_decode($dicari['kategori']);
                                                     for($i=0;$i<sizeof($kat);$i++){

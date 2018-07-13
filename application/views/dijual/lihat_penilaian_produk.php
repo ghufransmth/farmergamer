@@ -2,8 +2,11 @@
     /*ATUR BREADCRUMB DARI BOOTSTRAP*/
     ol.breadcrumb li+li:before {
         padding: 8px;
-        color: grey;
-        content: ">";
+        color: #555;
+        /*content: ">";*/
+        font-family: FontAwesome;
+        content: "\f054";
+        font-size: 12px;
     }
 
     /*EFEK WARNA GRADASI UNTUK ICON STAR FONT AWESOME*/
@@ -37,10 +40,11 @@
                 <div class="col-md-12">
 
                     <ol class="breadcrumb" style="background-color: transparent;border: 0;padding: 0;">
-                        <li><span style="color: #db4a39;font-family:latoregular;">FarmerGamer</span></li>
-                        <li><a style="color: #db4a39;font-family:latoregular;font-weight: bold;" href="<?php echo base_url();?>dijual/produk">Jual Produk</a></li>
-                        <li><span style="color: #db4a39;font-family:latoregular;">Lihat Penilaian</span></li>
-                        <li class="active"><span style="color: #db4a39;font-family:latoregular;"><?php echo $judul_item['judul'];?></span></li>
+                        <li><span style="color: #555;font-size:15px;font-family:latoregular;">FarmerGamer</span></li>
+                        <li><span style="color: #555;font-size:15px;font-family:latoregular;">Dijual</span></li>
+                        <li><a style="color: #555;font-size:15px;font-family:latoregular;" href="<?php echo base_url();?>dijual/produk">Produk</a></li>
+                        <li><span style="color: #555;font-size:15px;font-family:latoregular;">Lihat Penilaian</span></li>
+                        <li class="active"><span style="color: #555;font-size:15px;font-family:latoregular;"><?php echo $judul_item['judul'];?></span></li>
                     </ol>
 
                 </div>
@@ -127,7 +131,13 @@
                             </div>
 
                         </div>
+
+                        <div class="panel-body" style="border-top: 1px solid #ddd;">
+                            <button class="btn btn-default btn-block" onclick="detail('<?php echo $hsl[0]->id_dijual;?>','<?php echo url_title($hsl[0]->judul);?>');">Lihat Detail</button>
+                        </div>
+
                     </div>
+
                 </div>
 
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
@@ -193,3 +203,12 @@
 
     </div>
     </section>
+
+    <script>
+        
+        function detail(param,params)
+        {
+            location.href = "<?php echo base_url();?>dijual/produk/detail/"+param+"/"+params;
+        }
+
+    </script>

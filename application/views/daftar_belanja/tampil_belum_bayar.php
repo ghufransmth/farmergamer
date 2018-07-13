@@ -10,8 +10,8 @@
 
 			<div class="col-md-12" style="margin-top: 25px;">
 				<ol class="breadcrumb" style="background-color: transparent;border: 0;padding: 0;">
-                    <li><i class="fas fa-shopping-bag" style="color: #ff0000bf;"></i><span style="color: #db4a39;font-family:latoregular;"> Daftar Belanja</span></li>
-                    <li class="active"><span style="color: #db4a39;">Belum Bayar</span></li>
+                    <li><i class="fas fa-shopping-bag" style="color: #555;"></i><span style="color: #555;font-size:15px;font-family:latoregular;"> Daftar Belanja</span></li>
+                    <li class="active"><span style="color: #555;font-size:15px;">Belum Bayar</span></li>
                 </ol>
             </div>
 

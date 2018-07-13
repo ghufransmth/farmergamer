@@ -37,6 +37,21 @@
 					$cek_detail = $this->crud->cariDetailDijualBy($dua);
 					$data['ktgr'] = json_decode($cek_detail['kategori'], true);
 					$data['gmbr'] = json_decode($cek_detail['foto'], true);
+					$data['nm_game'] = $this->crud->getsingledatatablewhere("list_game","id_game",$cek_detail['id_game']);
+					$data['info_usr'] = $this->crud->getsingledatatablewhere("users","id_user",$cek_detail['id_user']);
+
+					$cekPenilaianProduk = $this->crud->lihatPenilaianProduk($dua);
+					if($cekPenilaianProduk->num_rows() > 0)
+					{
+						$data['kosong'] = "";
+						$data['hsl'] = $cekPenilaianProduk->result();
+					}
+					else
+					{
+						// $data['kosong'] = "<div class='alert alert-info text-center'>Belum Ada Penilaian!</div>";
+						$data['kosong'] = "<div class='text-center' style='border:1px solid #d9d9d9;background:#fff;padding:35px;border-radius:3px;'>Belum Ada Penilaian!</div>";
+						$data['hsl'] = $cekPenilaianProduk->result();
+					}
 
 					$main->display("dijual/detail_produk",$data);
 				}

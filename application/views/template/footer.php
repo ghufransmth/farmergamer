@@ -12,8 +12,12 @@
                                         <img src="<?php echo base_url();?>/assets/custom/images/logo/logo_farmergamer3_notransparant.jpg" alt="Logo farmergamer3" class="img-thumbnail"/>
                                         <!-- <img src="<?php //echo base_url();?>/assets/custom/images/logo/logo_farmergamer4.png" alt="Logo farmergamer3" /> -->
                                     </div>
-                                    <p>FarmerGamer menyediakan portal penjualan dan pembelian untuk produk / jasa di dalam game. FarmerGamer memudahkan para gamer dalam melakukan transaksi penjualan / pembelian produk / jasa secara aman, dan memudahkan dalam melakukan penyebaran informasi produk / jasa yang ditawarkan.</p>
-                                    <p>Portal ini sangat bermanfaat untuk para petani game yang ingin menghasilkan uang dan juga membantu calon pembeli yang ingin mencari kebutuhan-kebutuhan di dalam game. Terdapat beberapa game yang kami sediakan</p>
+                                    <!-- <p>FarmerGamer menyediakan portal penjualan dan pembelian untuk produk / jasa di dalam game. FarmerGamer memudahkan para gamer dalam melakukan transaksi penjualan / pembelian produk / jasa secara aman, dan memudahkan dalam melakukan penyebaran informasi produk / jasa yang ditawarkan.</p>
+                                    <p>Portal ini sangat bermanfaat untuk para petani game yang ingin menghasilkan uang dan juga membantu calon pembeli yang ingin mencari kebutuhan-kebutuhan di dalam game. Terdapat beberapa game yang kami sediakan</p> -->
+
+                                    <p>FarmerGamer merupakan portal / platform untuk jual beli & event di dalam game. FarmerGamer memudahkan para penjual, pembeli & promotor event di dalam game untuk melakukan transaksi penjualan / pembelian & pendaftaran event sehingga proses transaksi dapat berjalan secara cepat dan aman</p>
+                                    <p>Portal ini sangat bermanfaat untuk para penjual yang ingin menghasilkan uang dan juga membantu calon pembeli dalam mencari kebutuhan-kebutuhan di dalam game. Terdapat beberapa game yang telah kami sediakan dalam pelayanannya. Disamping itu siapapun dapat menjadi promotor event di dalam game.</p>
+                                    
                                 </div>
                             </div>
                             <div class="col-sm-4">

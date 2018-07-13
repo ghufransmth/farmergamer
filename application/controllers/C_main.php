@@ -1,6 +1,6 @@
 <?php
 	if (!defined('BASEPATH')) exit('No direct script access allowed');
-	class C_main extends CI_Controller{
+	class C_main extends CI_Controller{	
 		function __construct(){
 			session_start();
 			parent::__construct();
@@ -30,7 +30,7 @@
 		// }
 
 		function index(){
-			require_once(APPPATH.'libraries/Template.php'); 
+			require_once(APPPATH.'libraries/template.php'); 
 			$main =  new template();
 			$data['title'] = "Portal Jual Beli Dalam Game";
 			$main->display("dashboard2",$data);

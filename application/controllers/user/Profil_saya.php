@@ -6,6 +6,7 @@
 			parent::__construct();
 			$this->load->helper('url');
 			$this->load->model('m_crud','crud');
+			$this->load->library('upload');
 			date_default_timezone_set('Asia/Jakarta');
 		}
 
@@ -82,7 +83,7 @@
 			$main->display("user/profil_saya/ubah_profil",$data);
 		}
 
-		function proses_ubah_profil()
+		public function proses_ubah_profil()
 		{
 			$id_usr = $this->input->post("idusr");
 
@@ -198,6 +199,89 @@
 
 			$main->display("user/profil_saya/ubah_gambar",$data);
 		}
+
+		public function proses_ubah_gambar()
+		{
+			$id_usernya = $this->input->post("userid");
+			$nama_user = $this->input->post("namauser");
+			
+			$gambar = "";
+            sleep(0.5); // pause / delay 0.5 detik saat eksekusi
+		  	if(isset($_FILES["image"]["name"]))
+		  	{
+		   		// //setting konfigurasi upload image
+	           	$config['upload_path'] = "./assets/custom/images/image_user/";
+	            $config['allowed_types'] = 'gif|jpg|png';
+	            $config['max_size'] = '1000'; //1000kb
+	            $config['max_width']  = '2000';
+	            $config['max_height']  = '1024';
+
+	            //$config['encrypt_name'] = TRUE; // enkripsi nama foto
+	            $new_name = $id_usernya."_".$nama_user; 
+				$config['file_name'] = $new_name; // nama baru
+				$config['overwrite'] = TRUE; // jika true, file dengan nama yang sama akan di ganti dengan baru (tumpuk)
+
+	            $this->upload->initialize($config);
+
+	            if($_FILES["image"]["size"][0] <= 100000) // cek file size nya jika lebih kecil sama dengan 100kb maka sukses diupload
+	            {
+
+			   		for($count = 0; $count<count($_FILES["image"]["name"]); $count++)
+			   		{
+				    	$_FILES["files"]["name"] = $_FILES["image"]["name"][$count];
+				    	$_FILES["files"]["type"] = $_FILES["image"]["type"][$count];
+				    	$_FILES["files"]["tmp_name"] = $_FILES["image"]["tmp_name"][$count];
+				    	$_FILES["files"]["error"] = $_FILES["image"]["error"][$count];
+				    	$_FILES["files"]["size"] = $_FILES["image"]["size"][$count];
+				    	if($this->upload->do_upload("files"))
+				    	{
+				    		// lakukan upload gambar baru
+					     	$hslnya = $this->upload->data();
+					     	// $gambar[$count] = $hslnya["file_name"];
+
+					     	// $arr_satu[$count] = $hslnya["file_name"]; 
+					     	$gambar = $hslnya["file_name"];
+
+				    	}
+				    	
+			   		}
+		   			$response['code'] = 0; // kirim ajax respon sukses
+		   			$response['message'] = "Sukses Upload Foto!";
+		   		}
+		   		else
+		   		{
+		   			$cari_gmbr = $this->crud->getsingledatatablewhere("users", "id_user", $id_usernya);
+			  		$gambar = $cari_gmbr['image'];
+
+			  		$response['code'] = 1; // kirim ajax respon gagal
+			  		$response['message'] = "Ukuran File Maximal 100kb!";
+		   		}
+
+		  	}
+		  	else
+		  	{
+		  		$cari_gmbr = $this->crud->getsingledatatablewhere("users", "id_user", $id_usernya);
+		  		$gambar = $cari_gmbr['image'];
+
+		  		$response['code'] = 1; // kirim ajax respon gagal
+		  		$response['message'] = "Foto Belum Diubah";
+		  	}
+
+			// var_dump($gambar);
+			// var_dump($_FILES["image"]["size"]);
+
+		  	$data = array(
+				"image" => $gambar
+			);
+
+			$this->crud->allEditSave($data, $id_usernya, 'users', 'id_user');
+
+			header('Access-Control-Allow-Origin: *');
+			echo json_encode($response);
+
+		}
+
+
 
 	}
 ?>

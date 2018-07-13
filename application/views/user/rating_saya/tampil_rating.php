@@ -53,6 +53,7 @@
 					</div>
 
 				</div>
+				
 			</div>
 		</div>
 
@@ -110,6 +111,7 @@
 							<?php endif;?>
 						</div>
 						<div><?php echo $value->testimoni;?></div>
+						<div style="color: #c0c0c0;font-size: 12px;">25-05-2018 05.30</div>
 					</div>
 
 				</div>

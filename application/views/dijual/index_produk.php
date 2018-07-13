@@ -33,8 +33,11 @@
     /*ATUR BREADCRUMB DARI BOOTSTRAP*/
     ol.breadcrumb li+li:before {
         padding: 8px;
-        color: grey;
-        content: ">";
+        color: #555;
+        /*content: ">";*/
+        font-family: FontAwesome;
+        content: "\f054";
+        font-size: 12px;
     }
 
     /*CUSTOM BUTTON ACTIVED*/
@@ -191,8 +194,9 @@
         <div class="container" style="margin-top: 15px;">
 
             <ol class="breadcrumb" style="background-color: transparent;border: 0;padding-left: 0;">
-                <li><span style="color: #db4a39;font-family:latoregular;">FarmerGamer</span></li>
-                <li><?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2),'Jual Produk','style="color:#db4a39;font-weight:bold;"');?></li>
+                <li><span style="color: #555;font-size:15px;font-family:latoregular;">FarmerGamer</span></li>
+                <li><span style="color: #555;font-size:15px;font-family:latoregular;">Dijual</span></li>
+                <li><?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2),'Produk','style="color: #555;font-size:15px;"');?></li>
             </ol>
 
             <div class="row" style="margin-top: -15px;">

@@ -2,8 +2,11 @@
     /*ATUR BREADCRUMB DARI BOOTSTRAP*/
     ol.breadcrumb li+li:before {
         padding: 8px;
-        color: grey;
-        content: ">";
+        color: #555;
+        /*content: ">";*/
+        font-family: FontAwesome;
+        content: "\f054";
+        font-size: 12px;
     }
 
     /*ATUR RESPONSIVE*/
@@ -46,9 +49,9 @@
                 <div class="col-md-12">
 
                     <ol class="breadcrumb" style="background-color: transparent;border: 0;padding: 0;">
-                        <li><span style="color: #db4a39;font-family:latoregular;">FarmerGamer</span></li>
-                        <li><span style="color: #db4a39;font-family:latoregular;">User</span></li>
-                        <li class="active"><span style="color: #db4a39;font-family:latoregular;">Rating Saya</span></li>
+                        <li><span style="color: #555;font-size:15px;font-family:latoregular;">FarmerGamer</span></li>
+                        <li><span style="color: #555;font-size:15px;font-family:latoregular;">User</span></li>
+                        <li class="active"><span style="color: #555;font-size:15px;font-family:latoregular;">Rating Saya</span></li>
                     </ol>
 
                     <h4 class="text-center" style="color: #565656;font-size: 25px;transform: scale(.9,1);font-family: sans-serif;text-transform: uppercase;">Rating Saya</h4>

@@ -28,8 +28,11 @@
     /*ATUR BREADCRUMB DARI BOOTSTRAP*/
     ol.breadcrumb li+li:before {
         padding: 8px;
-        color: grey;
-        content: ">";
+        color: #555;
+        /*content: ">";*/
+        font-family: FontAwesome;
+        content: "\f054";
+        font-size: 12px;
     }
 
     /*EFEK WARNA GRADASI UNTUK ICON STAR FONT AWESOME*/

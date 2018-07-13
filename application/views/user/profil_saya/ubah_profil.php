@@ -2,8 +2,11 @@
     /*ATUR BREADCRUMB DARI BOOTSTRAP*/
     ol.breadcrumb li+li:before {
         padding: 8px;
-        color: grey;
-        content: ">";
+        color: #555;
+        /*content: ">";*/
+        font-family: FontAwesome;
+        content: "\f054";
+        font-size: 12px;
     }
 
     /*ATUR RESPONSIVE*/
@@ -51,10 +54,10 @@
                 <div class="col-md-12">
 
                     <!-- <ol class="breadcrumb" style="background-color: transparent;border: 0;padding: 0;">
-                        <li><span style="color: #db4a39;font-family:latoregular;">FarmerGamer</span></li>
-                        <li><span style="color: #db4a39;font-family:latoregular;">User</span></li>
-                        <li class="active"><span style="color: #db4a39;font-family:latoregular;">Profil Saya</span></li>
-                        <li class="active"><span style="color: #db4a39;font-family:latoregular;">Ubah Profil</span></li>
+                        <li><span style="color: #555;font-size:15px;font-family:latoregular;">FarmerGamer</span></li>
+                        <li><span style="color: #555;font-size:15px;font-family:latoregular;">User</span></li>
+                        <li class="active"><span style="color: #555;font-size:15px;font-family:latoregular;">Profil Saya</span></li>
+                        <li class="active"><span style="color: #555;font-size:15px;font-family:latoregular;">Ubah Profil</span></li>
                     </ol> -->
 
                     <!-- <h4 class="text-center" style="color: #565656;font-size: 25px;transform: scale(.9,1);font-family: sans-serif;text-transform: uppercase;">Profil Saya</h4>
@@ -509,31 +512,31 @@
 
                         swal({
                             icon: "success",
-                            closeOnClickOutside: true, //tutup dengan click area luar
-                            closeOnEsc: true, // tutup dengan tombol esc
+                            closeOnClickOutside: false, //tutup dengan click area luar
+                            closeOnEsc: false, // tutup dengan tombol esc
                             title: "Berhasil Diubah!", // judul
                             button: false, // button tidak ada
                             timer: 3000, // setting waktu alert
                             text: " " // text
                         });
 
-                        // setTimeout(function(){
-                        //     location.href = '<?php //echo base_url();?>user/profil_saya/ubah_profil';
-                        // }, 2000);
+                        setTimeout(function() {
+                            location.href = '<?php echo base_url();?>user/profil_saya';
+                        }, 2000);
 
                     }
                     else
                     {
                         swal({
                             icon: "warning",
-                            closeOnClickOutside: true,
-                            closeOnEsc: true,
+                            closeOnClickOutside: false,
+                            closeOnEsc: false,
                             title: "Gagal Diubah!",
-                            // button: { // setting button
-                            //     className: "tombol_red" // kasih nama class
-                            // },
-                            button: false,
-                            timer: 3000,
+                            button: { // setting button
+                                className: "tombol_red" // kasih nama class
+                            },
+                            //button: false,
+                            //timer: 3000,
                             text: " "
                         });
                     }
@@ -541,9 +544,8 @@
                 }
 
             });
-                    setTimeout(function() {
-                        location.href = '<?php echo base_url();?>user/profil_saya/ubah_profil';
-                    }, 2000);
+                    
+
         }
 
     </script>

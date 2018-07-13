@@ -28,8 +28,11 @@
     /*ATUR BREADCRUMB DARI BOOTSTRAP*/
     ol.breadcrumb li+li:before {
         padding: 8px;
-        color: grey;
-        content: ">";
+        color: #555;
+        /*content: ">";*/
+        font-family: FontAwesome;
+        content: "\f054";
+        font-size: 12px;
     }
 
     /*ATUR RESPONSIVE*/
@@ -73,6 +76,7 @@
     .css-img-upload img
     {
         width: 90px;
+        min-height: 90px;
         cursor: pointer;
     }
 
@@ -123,11 +127,14 @@
                                     </label>
                                     <div class="col-md-12 text-center css-img-upload">
                                         <label for="imgInp">
-                                        <img id="blah" src="<?php echo base_url();?>assets/custom/images/image_user/<?php echo $user['image'];?>" alt="your image" />
+                                        <img id="blah" src="<?php echo base_url();?>assets/custom/images/image_user/<?php echo $user['image'];?>" alt="your image" class="img-circle"/>
                                         </label>
                                     </div>
                                     <div class="col-md-12 css-img-hidden"><input type='file' id="imgInp" class="form-control"/></div>
                                 </div>
+
+                                <input type="hidden" name="userid" id="userid" value="<?php echo $user['id_user'];?>">
+                                <input type="hidden" name="namauser" id="namauser" value="<?php echo $user['username'];?>">
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label"></label>
@@ -220,5 +227,136 @@
         $("#imgInp").change(function(){
             readURL(this);
         });
+
+        function preInsert(){
+
+            $.confirm({
+                title: 'Konfirmasi!',
+                content: 'Anda Yakin Mengubah Data?',
+                type: 'green',
+                escapeKey: 'Batal',
+                backgroundDismiss: false,
+                buttons: {   
+                    Simpan: {
+                        btnClass: 'btn-primary text-white',
+                        keys: ['enter'],
+                        action: function(){
+                            insertData();
+                        }
+                    },
+                    Batal: {
+                        btnClass:'btn-red',
+                        // action: function(){
+                        //     swal({
+                        //         icon: "error",
+                        //         closeOnClickOutside: true, //tutup dengan click area luar
+                        //         closeOnEsc: true, // tutup dengan tombol esc
+                        //         title: "Gagal", // judul
+                        //         button: false, // button tidak ada
+                        //         timer: 3000, // setting waktu alert
+                        //         text: "Batal Mengubah Data!" // text
+                        //     });
+
+                        // }
+                    }
+
+                }
+            });
+            
+        }
+
+        function insertData(){
+            var files = $('#imgInp')[0].files;
+            // var namabaru = files.filename + "new";
+            var form_data = new FormData();
+
+            for(var count = 0; count<files.length; count++)
+            {
+                var name = files[count].name;
+                var extension = name.split('.').pop().toLowerCase();
+                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
+                {
+                    error += "Invalid " + count + " Image File"
+                }
+                else
+                {
+                    form_data.append("image[]", files[count]);
+                    // form_data.append("image[]", files[count], namabaru[count]);
+                }
+            }
+
+            form_data.append('userid',$("#userid").val());
+            form_data.append('namauser',$("#namauser").val());
+
+            console.log(form_data);
+            console.log(files);
+
+            $.ajax({
+                url: '<?php echo base_url();?>user/profil_saya/proses_ubah_gambar',
+                data: form_data,
+                method: 'POST',
+                dataType: 'json',
+                processData: false, //penting untuk input file
+                contentType: false,
+                // cache: false,
+                enctype: 'multipart/form-data',
+                // crossDomain: true,
+                // contentType: 'application/json; charset=utf-8',
+                success: function(result) {
+                    console.log(result);
+
+                    // disabled the submit button
+                    // $("#btnSubmit").prop("disabled", true);
+
+                    if(result.code==0)
+                    {
+                        // $( '#inputdata0' ).each(function(){
+                        //   this.reset();
+                        // });
+                        // alert("Sukses : "+result.message);
+                        // Alert.show("Sukses : <b>"+result.message+"</b>","success");
+
+                        swal({
+                            icon: "success",
+                            closeOnClickOutside: false, //tutup dengan click area luar
+                            closeOnEsc: false, // tutup dengan tombol esc
+                            title: result.message, // judul
+                            button: false, // button tidak ada
+                            timer: 3000, // setting waktu alert
+                            text: ' ' // text
+                        });
+
+                        setTimeout(function(){
+                            location.href = '<?php echo base_url();?>user/profil_saya';
+                        }, 2000);
+
+                    }
+                    else
+                    {
+                        // alert("Gagal : "+result.message);
+                        // Alert.show("Gagal : <b>"+result.message+"</b>","danger");
+                        swal({
+                            icon: "warning",
+                            closeOnClickOutside: false,
+                            closeOnEsc: false,
+                            title: result.message,
+                            button: { // setting button
+                                className: "tombol_red" // kasih nama class
+                            },
+                            //button: false, // button tidak ada
+                            //timer: 3000, // setting waktu alert
+                            text: ' '
+                        });
+
+                    }
+
+
+                }
+
+            });
+
+
+        }
+
 
     </script>
