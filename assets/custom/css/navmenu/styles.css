@@ -1,0 +1,666 @@
+/*html,body {
+  width:100%
+}
+
+body {
+  font-family:"Roboto Condensed",sans-serif;
+  color:#000;
+  background-color:#f1f1f1;
+  font-size:15px;
+  padding-bottom:50px
+}*/
+
+/*h1 {
+  font-size:60px;
+  letter-spacing:-.03em
+}
+
+p {
+  margin-bottom:15px
+}
+
+a {
+  color:#55acee
+}
+
+a:hover {
+  color:#000;
+  text-decoration:none
+}*/
+
+nav {
+    height:141px;
+    background:#fff;
+    border-bottom:1px solid #ccc;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:10;
+    -webkit-transition:all .3s;
+    -moz-transition:all .3s;
+    transition:all .3s
+}
+
+nav .wrapper {
+    width:960px;
+    margin:0 auto
+}
+
+nav h1 {
+    margin:0;
+    padding:0;
+    line-height:36px;
+    font-size:36px;
+    margin-left:10px
+}
+
+.logo {
+    float:left;
+    
+}
+
+.nav-top {
+    height:90px;
+    padding-top:25px;
+    margin-top:0;
+    -webkit-transition:all .3s;
+    -moz-transition:all .3s;
+    transition:all .3s
+}
+
+/*UNTUK DISPLAY USER*/
+
+.nav-top-2 {
+    height:0;
+    padding-top:25px;
+    margin-top:-15px;
+    -webkit-transition:all .3s;
+    -moz-transition:all .3s;
+    transition:all .3s
+}
+
+nav.small .nav-top-2 {
+    margin-top:-90px;
+}
+
+/*END UNTUK DISPLAY USER*/
+
+
+.nav-top .logo {
+    margin-top:-2px
+}
+
+.nav-top .search {
+    float:right;
+    width:40%;
+    position:relative
+}
+
+.nav-top .search input[type="text"] {
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:20px;
+    color:#333;
+    font-size:17px;
+    height:40px;
+    outline:0;
+    padding:0 50px 0 15px;
+    transition:background-color .15s;
+    width:100%
+}
+
+.nav-top .search .search-submit {
+    cursor:pointer;
+    height:40px;
+    position:absolute;
+    right:0;
+    top:-2px;
+    width:50px;
+    background:none;
+    border:0;
+    font-size:20px;
+    color:#333;
+    opacity:.5
+}
+
+.nav-top .search .search-submit:hover {
+    color:#55acee;
+    opacity:1
+}
+
+.nav-top .navbar-toggle {
+    margin-top:-2px;
+    margin-right:0
+}
+
+.nav-top .navbar-toggle .fa {
+    color:#888;
+    font-size:28px
+}
+
+.navbar-collapse {
+    padding:0
+}
+
+.navbar-collapse.in {
+    overflow:visible
+}
+
+.main-nav {
+    width:100%;
+    box-shadow:inset 0 1px #e2e2e2;
+    /*background: #317090;*/ /*warna biru muda*/
+    background: #303F9F;
+    /*background: #2d6490;*/
+    height: 80px;
+    border: none;
+}
+
+.main-nav .container {
+    position:relative
+}
+
+.main-nav .minilogo {
+    position:relative;
+    position:absolute;
+    top:15px;
+    left:-100%;
+    -webkit-transition:all .3s;
+    -moz-transition:all .3s;
+    transition:all .3s
+}
+
+.main-nav .minilogo h1 {
+    font-size:20px
+}
+
+.main-nav ul.nav {
+    list-style-type:none;
+    background-color:transparent;
+    -webkit-transition:padding .3s;
+    -moz-transition:padding .3s;
+    transition:padding .3s
+}
+
+.main-nav ul.nav > li {
+    vertical-align:top;
+    border-left:1px solid #0d3948;
+        
+}
+.main-nav ul.nav > li:last-child {
+    border-right:1px solid #0d3948;
+        
+}
+
+.main-nav ul.nav > li > a {
+    
+    text-transform: uppercase;
+    font-size:13px;
+    background-color:transparent;
+    color:#fff;
+    /*UNTUK ATUR TINGGI NAV*/
+    /*height:80px;
+    line-height:80px;
+    padding:0;
+    margin:0;*/
+    /*border-top:2px solid #000;*/
+    padding-top: 14px;
+    
+}
+
+.main-nav ul.nav > li > a.active,.main-nav ul.nav > li > a:hover {
+
+    /*color:#ab987a;*/
+    /*color: #fa6839;*/
+    background-color: rgba(0,0,0,0.15);
+    /*background-color: rgba(85, 85, 85, 0.7);*/
+}
+
+        /*UNTUK EFEK GARIS BAWAH SAAT HOVER ATAU ACTIVE*/
+.main-nav .nav > li > a:before
+{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    background: #5cb85c; /* warna ijo*/
+    /*background: #E53935;*/
+    height: 3px;
+    width: 0;
+    left: 0;
+    transition:.5s all;
+}
+
+.main-nav .nav li  a:hover:before,.main-nav .nav li a.active:before{
+    width: 100%;
+}
+        /*END UNTUK EFEK GARIS BAWAH SAAT HOVER ATAU ACTIVE*/
+
+/*
+.main-nav ul.nav > li:nth-child(1) > a {
+    border-color:#55acee
+}
+
+.main-nav ul.nav > li:nth-child(2) > a {
+    border-color:#fc5e6a
+}
+
+.main-nav ul.nav > li:nth-child(3) > a {
+    border-color:#b9de7f
+}
+
+.main-nav ul.nav > li:nth-child(4) > a {
+    border-color:#4e4e93
+}
+
+.main-nav ul.nav > li:nth-child(5) > a {
+    border-color:#fe9e69
+}
+
+.main-nav ul.nav > li:nth-child(6) > a {
+    border-color:#5fd5c0
+}
+
+.main-nav ul.nav > li:nth-child(7) > a {
+    border-color:#bf8dc8
+}*/
+
+section.stretch {
+    height:1600px;
+    width:100%
+}
+
+section.stretch p {
+    font-size:80px;
+    color:#d2d2d2;
+    text-align:center;
+    position:relative;
+    margin-top:320px
+}
+
+section.stretch p.bottom {
+    top:100%
+}
+
+nav.small {
+    height:51px
+}
+
+nav.small .nav-top {
+    margin-top:-90px;
+}
+
+/*nav.small .nav-top{
+    margin-top:-15px;
+    height: 0!important;
+}*/
+
+nav.small .main-nav {
+    box-shadow:none
+}
+
+nav.small ul.nav {
+    padding-left:150px
+}
+
+nav.small .minilogo {
+    left:0
+}
+
+@media (max-width: 992px) {
+    nav.small .minilogo {
+        left:10px
+    }
+}
+
+@media (max-width: 767px) {
+    nav {
+        height:81px!important
+    }
+
+    nav .nav-top {
+        padding-top:20px;
+        height:80px
+    }
+
+    .main-nav .container {
+        padding:0
+    }
+
+    .main-nav .container ul.nav {
+        border-bottom:1px solid #ccc
+    }
+
+    nav.small .nav-top {
+        margin-top:0
+    }
+
+    nav.small ul.nav {
+        padding-left:0
+    }
+
+    nav.small .minilogo {
+        display:none;
+    }
+}
+
+
+/*SIDE NAV*/
+/*.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}*/
+
+
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+    .modal.left .modal-dialog,
+    .modal.right .modal-dialog {
+        position: fixed;
+        margin: auto;
+        width: 320px;
+        height: 100%;
+        -webkit-transform: translate3d(0%, 0, 0);
+            -ms-transform: translate3d(0%, 0, 0);
+             -o-transform: translate3d(0%, 0, 0);
+                transform: translate3d(0%, 0, 0);
+    }
+
+    .modal.left .modal-content,
+    .modal.right .modal-content {
+        height: 100%;
+        overflow-y: auto;
+    }
+    
+    .modal.left .modal-body,
+    .modal.right .modal-body {
+        padding: 15px 15px 80px;
+    }
+
+/*Left*/
+    .modal.left.fade .modal-dialog{
+        left: -320px;
+        -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+           -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+             -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+                transition: opacity 0.3s linear, left 0.3s ease-out;
+    }
+    
+    .modal.left.fade.in .modal-dialog{
+        left: 0;
+    }
+        
+/*Right*/
+    .modal.right.fade .modal-dialog {
+        right: -320px;
+        -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+           -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+             -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+                transition: opacity 0.3s linear, right 0.3s ease-out;
+    }
+    
+    .modal.right.fade.in .modal-dialog {
+        right: 0;
+    }
+
+/* ----- MODAL STYLE ----- */
+    .modal-content {
+        border-radius: 0;
+        border: none;
+    }
+
+    .modal-header {
+        border-bottom-color: #EEEEEE;
+        background-color: #FAFAFA;
+    }
+
+
+/*-- search --*/
+.cd-main-header {
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+}
+.cd-main-header {
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+}
+.cd-main-content.nav-is-visible, .cd-main-header.nav-is-visible {
+    -webkit-transform: translateX(-260px);
+    -moz-transform: translateX(-260px);
+    -ms-transform: translateX(-260px);
+    -o-transform: translateX(-260px);
+    transform: translateX(-260px);
+}
+.nav-on-left .cd-main-content.nav-is-visible, .nav-on-left .cd-main-header.nav-is-visible {
+    -webkit-transform: translateX(260px);
+    -moz-transform: translateX(260px);
+    -ms-transform: translateX(260px);
+    -o-transform: translateX(260px);
+    transform: translateX(260px);
+}
+.cd-header-buttons {
+    position: absolute;
+    display: inline-block;
+    top: -51px;
+    right: 16%;
+}
+.cd-header-buttons li {
+    display: inline-block;
+}
+.cd-search-trigger, .cd-nav-trigger {
+    position: relative;
+    display: block;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: transparent;
+    z-index: 3;
+}
+.cd-search-trigger::before, .cd-search-trigger::after {
+    /* search icon */
+    content: '';
+    position: absolute;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.cd-search-trigger::before {
+    /* lens */
+    top: 11px;
+    left: 11px;
+    width: 18px;
+    height: 18px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    /*border: 3px solid #fff;*/
+    border: 3px solid #0D3542;
+}
+.cd-search-trigger::after {
+    /* handle */
+    height: 3px;
+    width: 8px;
+    /*background: #fff;*/
+    background: #0D3542;
+    bottom: 14px;
+    right: 11px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.cd-search-trigger span {
+    /* container for the X icon */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.cd-search-trigger span::before, .cd-search-trigger span::after {
+    /* close icon */
+    content: '';
+    position: absolute;
+    display: inline-block;
+    height: 3px;
+    width: 22px;
+    top: 50%;
+    margin-top: -2px;
+    left: 50%;
+    margin-left: -11px;
+    /*background: #fff;*/
+    background: #0D3542;
+    opacity: 0;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.cd-search-trigger span::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.cd-search-trigger span::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.cd-search-trigger.search-is-visible::before, .cd-search-trigger.search-is-visible::after {
+    /* hide search icon */
+    -moz-opacity: 0;
+    opacity: 0;
+}
+.cd-search-trigger.search-is-visible span::before, .cd-search-trigger.search-is-visible span::after {
+    /* show close icon */
+    -moz-opacity: 1;
+    opacity: 1;
+}
+.cd-search-trigger.search-is-visible span::before {
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+.cd-search-trigger.search-is-visible span::after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.cd-search {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-search input {
+    border-radius: 0;
+    border: none;
+    background: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    padding: 0 5%;
+    -webkit-box-shadow: inset 0 1px 0 #e2e3df, 0 3px 6px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 #e2e3df, 0 3px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 #e2e3df, 0 3px 6px rgba(0, 0, 0, 0.05); 
+    font-size: 1.3em;
+    padding: 1em 2em;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.cd-search input::-webkit-input-placeholder {
+    color: #fff !important;
+}
+.cd-search input::-moz-placeholder {
+    color: #fff !important;
+}
+.cd-search input:-moz-placeholder {
+    color: #fff !important;
+}
+.cd-search input:-ms-input-placeholder {
+    color: #fff !important;
+}
+.cd-search input:focus {
+    outline: none;
+}
+.cd-search.is-visible {
+    -moz-opacity: 1;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+/*-- //search --*/
